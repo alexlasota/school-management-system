@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Student {
     private Long id;
     private String phoneNumber;
