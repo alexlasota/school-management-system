@@ -48,7 +48,9 @@ public class StudentRepository {
         student.setPesel(newStudentData.getPesel());
         student.setGender(newStudentData.getGender());
     }
-    public void updateStudentPhoneNumber(Student student, String newPhoneNumber){
+
+    public Student updateStudentPhoneNumber(Student student, String newPhoneNumber) {
         student.setPhoneNumber(newPhoneNumber);
+        return student;
     }
 }
