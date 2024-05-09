@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -19,10 +18,9 @@ public class StudentRepository {
     }
 
     public List<Student> getStudentListByLastName(String lastName) {
-        return new ArrayList<>(students)
-                .stream()
+        return students.stream()
                 .filter(student -> student.getLastName().equals(lastName))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public Optional<Student> getStudentById(Long id) {
@@ -33,6 +31,8 @@ public class StudentRepository {
 
     public void addStudent(Student student) {
         students.add(student);
+        long nextId = students.stream().mapToLong(Student::getId).max().orElse(1) + 1L;
+        student.setId(nextId);
     }
 
     public void removeStudentById(Long id) {

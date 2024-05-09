@@ -16,8 +16,8 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping
-    public List<Student> getStudents() {
-        return studentService.getStudents();
+    public List<Student> getStudents(@RequestParam(required = false) String lastName) {
+        return studentService.getStudents(lastName);
     }
 
     @GetMapping("/{id}")
@@ -25,15 +25,10 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
-    @GetMapping("/lastName/{lastName}")
-    public List<Student> getStudentsByLastName(@PathVariable String lastName) {
-        return studentService.getStudentListByLastName(lastName);
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addStudent(@RequestBody Student student) {
-        studentService.addStudent(student);
+    public Student addStudent(@RequestBody Student student) {
+        return studentService.addStudent(student);
     }
 
     @DeleteMapping("/{id}")

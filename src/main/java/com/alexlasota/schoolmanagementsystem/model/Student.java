@@ -5,11 +5,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
-@NoArgsConstructor //potrzebny?
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@NoArgsConstructor
+@Data
 public class Student {
     private Long id;
     private String phoneNumber;
@@ -18,8 +15,4 @@ public class Student {
     private LocalDate birthday;
     private String pesel;
     private Gender gender;
-
-    public enum Gender {
-        MALE, FEMALE
-    }
 }
