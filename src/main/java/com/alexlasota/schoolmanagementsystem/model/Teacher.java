@@ -5,11 +5,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
-@NoArgsConstructor //potrzebny?
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@NoArgsConstructor
+@Data
 public class Teacher {
     private Long id;
     private String phoneNumber;
@@ -17,6 +14,6 @@ public class Teacher {
     private String lastName;
     private LocalDate birthday;
     private String pesel;
-    private Student.Gender gender;
+    private Gender gender;
     private Double salary;
 }
